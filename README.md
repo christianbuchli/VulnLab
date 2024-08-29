@@ -99,10 +99,22 @@ After visiting the site again in burp's browser and exploring, the previously se
 
 ![Burp6](https://github.com/user-attachments/assets/555764a0-6d5f-492e-89c6-a07f74da57b0)
 
-In this case the productId parameter is setup to handle integer input, but isn't setup correctly to handle unexpected input such as a string value.
+In this case the productId parameter is setup to handle integer input, but isn't setup correctly to handle unexpected input such as a string value which can be discovered by testing for input based vulnerabilities. In the event of recieveing the a string the server sends back a verbose error response that contains a stack trace and reveals that the website is using Apache Struts and the version, which can be useful information for an attacker to obtain.
 
 ![Burp7](https://github.com/user-attachments/assets/3df60eb5-b1f1-423c-9bcf-eb75fa0d76c7)
 
-
-
 ![Burp8](https://github.com/user-attachments/assets/31397774-a911-499f-a78f-f096d48e6a8d)
+
+# Home Network Scanning Exercise
+
+Lastly, I will perform a quick scan against my home network using Nessus. Nessus inidicated a Medium severity vulnerability found, mDNS Detection. This vulnerability would allow anyone to uncover information such as operating system type and exact version, hostname, and a list of services running. To remedy this I implemented a firewall rule to filter incoming traffic to UDP port 5353.
+
+![firewall1](https://github.com/user-attachments/assets/4c28591c-fdac-48c5-9047-bd496dc0b3cd)
+
+![firewall2](https://github.com/user-attachments/assets/339762f5-475a-4bf4-bab3-f4743ae79571)
+
+![firewall3](https://github.com/user-attachments/assets/dcec470e-0661-4bda-9974-1bc6d3a7f9db)
+
+![firewall4](https://github.com/user-attachments/assets/cd364c55-7064-40bc-9df8-bd4a16442b39)
+
+That's all for this project, thanks for reading!
